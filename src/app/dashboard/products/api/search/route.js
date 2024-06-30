@@ -1,0 +1,33 @@
+import { API_URL } from '../../../../../config';
+import { cookies } from 'next/headers';
+import { NextResponse } from 'next/server';
+import qs from 'qs'
+export async function GET(request) {
+  const cookieStore = cookies();
+  const token = request.cookies.get('token')?.value
+  const { searchParams } = new URL(request.url)
+  const page = searchParams.get('page')
+  const query = searchParams.get('query')
+  const queries = {
+    title: {
+      contains: query,
+    },
+
+  };
+
+  const stringifiedQuery = qs.stringify(
+    {
+      where: queries, // ensure that `qs` adds the `where` property, too!
+    },
+    { addQueryPrefix: true }
+  );
+  const res = await fetch(`${API_URL}/api/product?page=${page ?? 1}&${stringifiedQuery}`, {
+    headers: {
+      Authorization: `JWT ${token}`
+    }
+  })
+
+  const data = await res.json()
+
+  return NextResponse.json({ code: 200, message: data })
+}

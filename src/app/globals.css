@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ck-content a{
+    color: #ba8249
+  }
+

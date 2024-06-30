@@ -1,0 +1,11 @@
+{
+  "/login/page": "app/login/page.js",
+  "/dashboard/coupons/page": "app/dashboard/coupons/page.js",
+  "/dashboard/coupons/create/page": "app/dashboard/coupons/create/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/dashboard/coupons/[id]/page": "app/dashboard/coupons/[id]/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/login/api/route": "app/login/api/route.js",
+  "/dashboard/coupons/api/route": "app/dashboard/coupons/api/route.js",
+  "/dashboard/coupons/create/api/route": "app/dashboard/coupons/create/api/route.js"
+}
